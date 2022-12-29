@@ -12,30 +12,15 @@ const canvas = document.querySelector("canvas.webgl");
 const scene = new THREE.Scene();
 
 // Object
+// Create an empty BufferGeometry
 const geometry = new THREE.BufferGeometry();
-const positionsArray = new Float32Array(9);
 
-// First vertice
-positionsArray[0] = 0; // x
-positionsArray[1] = 0; // y
-positionsArray[2] = 0; // z
-
-// Second vertice
-positionsArray[3] = 0; // x
-positionsArray[4] = 1; // y
-positionsArray[5] = 0; // z
-
-// Third vertice
-positionsArray[6] = 1; // x
-positionsArray[7] = 0; // y
-positionsArray[8] = 0; // z
-
-// Could also use it to create a Float32Array containing the vertices position (3 by 3)
-// const positionsArray = new Float32Array([
-//     0, 0, 0, // First vertex
-//     0, 1, 0, // Second vertex
-//     1, 0, 0  // Third vertex
-// ])
+// Create 50 triangles (450 values)
+const count = 50;
+const positionsArray = new Float32Array(count * 3 * 3);
+for (let i = 0; i < count * 3 * 3; i++) {
+  positionsArray[i] = (Math.random() - 0.5) * 4;
+}
 
 // Create the attribute and name it 'position'
 const positionsAttribute = new THREE.BufferAttribute(positionsArray, 3);
