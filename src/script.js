@@ -12,16 +12,34 @@ const canvas = document.querySelector("canvas.webgl");
 const scene = new THREE.Scene();
 
 // Object
-// const geometry = new THREE.BoxGeometry(
-//   1, // width,
-//   1, // height,
-//   1, // depth,
-//   2, // widthSegments - x axis,
-//   2, // heightSegments - y axis,
-//   2 // depthSegments - z axis,
-// );
+const geometry = new THREE.BufferGeometry();
+const positionsArray = new Float32Array(9);
 
-const geometry = new THREE.SphereGeometry(1, 24, 24);
+// First vertice
+positionsArray[0] = 0; // x
+positionsArray[1] = 0; // y
+positionsArray[2] = 0; // z
+
+// Second vertice
+positionsArray[3] = 0; // x
+positionsArray[4] = 1; // y
+positionsArray[5] = 0; // z
+
+// Third vertice
+positionsArray[6] = 1; // x
+positionsArray[7] = 0; // y
+positionsArray[8] = 0; // z
+
+// Could also use it to create a Float32Array containing the vertices position (3 by 3)
+// const positionsArray = new Float32Array([
+//     0, 0, 0, // First vertex
+//     0, 1, 0, // Second vertex
+//     1, 0, 0  // Third vertex
+// ])
+
+// Create the attribute and name it 'position'
+const positionsAttribute = new THREE.BufferAttribute(positionsArray, 3);
+geometry.setAttribute("position", positionsAttribute);
 
 const material = new THREE.MeshBasicMaterial({
   color: 0xff0000,
