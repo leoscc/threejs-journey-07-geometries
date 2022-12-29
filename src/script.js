@@ -12,14 +12,16 @@ const canvas = document.querySelector("canvas.webgl");
 const scene = new THREE.Scene();
 
 // Object
-const geometry = new THREE.BoxGeometry(
-  1, // width,
-  1, // height,
-  1, // depth,
-  2, // widthSegments - x axis,
-  2, // heightSegments - y axis,
-  2 // depthSegments - z axis,
-);
+// const geometry = new THREE.BoxGeometry(
+//   1, // width,
+//   1, // height,
+//   1, // depth,
+//   2, // widthSegments - x axis,
+//   2, // heightSegments - y axis,
+//   2 // depthSegments - z axis,
+// );
+
+const geometry = new THREE.SphereGeometry(1, 24, 24);
 
 const material = new THREE.MeshBasicMaterial({
   color: 0xff0000,
